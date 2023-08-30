@@ -1,9 +1,9 @@
-# ZipCode
+# MoneyToNumbers
 
 [![Latest Version on Packagist](https://img.shields.io/packagist/v/wagnermengue/zipcode.svg?style=flat-square)](https://packagist.org/packages/wagnermengue/zipcode)
 [![Total Downloads](https://img.shields.io/packagist/dt/wagnermengue/zipcode.svg?style=flat-square)](https://packagist.org/packages/wagnermengue/zipcode)
 
-Package developed to find zip code
+Package developed to convert money text on numbers
 
 ## Installation
 
@@ -31,7 +31,7 @@ Please see [CHANGELOG](CHANGELOG.md) for more information what has changed recen
 
 ### Security
 
-If you discover any security related issues, please email dev.mengue@gmail.com instead of using the issue tracker.
+If you discover any security related issues, please email dev.mengue@gmail.com or itamar.brito@gmail.com instead of using the issue tracker.
 
 ## Credits
 
