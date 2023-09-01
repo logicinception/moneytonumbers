@@ -1,7 +1,7 @@
 # MoneyToNumbers
 
-[![Latest Version on Packagist](https://img.shields.io/packagist/v/wagnermengue/zipcode.svg?style=flat-square)](https://packagist.org/packages/wagnermengue/zipcode)
-[![Total Downloads](https://img.shields.io/packagist/dt/wagnermengue/zipcode.svg?style=flat-square)](https://packagist.org/packages/wagnermengue/zipcode)
+[![Latest Version on Packagist](https://img.shields.io/packagist/v/logicinception/moneytonumbers.svg?style=flat-square)](https://packagist.org/packages/logicinception/moneytonumbers)
+[![Total Downloads](https://img.shields.io/packagist/dt/logicinception/moneytonumbers.svg?style=flat-square)](https://packagist.org/packages/logicinception/moneytonumbers)
 
 Package developed to convert money text on numbers
 
