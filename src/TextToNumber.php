@@ -53,6 +53,7 @@ class TextToNumber
     ];
 
     private $hasIntegerArgument = true;
+    private $hasDecimalArgument = true;
     public function __construct(private string $text)
     {
     }
@@ -67,16 +68,20 @@ class TextToNumber
         } catch (\Exception $exception) {
             $this->hasIntegerArgument = false;
         }
-
+        print_r($explodedMoney);
         $integerArgument = "0";
         if ($this->hasIntegerArgument) {
             $arguments = explode(' ', $explodedMoney[0]);
             $integerArgument = $this->integerArgument($arguments);
         }
+        try {
+            $stringCents = empty($explodedMoney) ? $textSanitized : $explodedMoney[1];
+            $decimalArguments = $this->explodeCents($stringCents);
+            $decimalArgument = $this->decimalArgument($decimalArguments);
+        } catch (\Exception $exception) {
+            $decimalArgument = "00";
+        }
 
-        $stringCents = empty($explodedMoney) ? $textSanitized : $explodedMoney[1];
-        $decimalArguments = $this->explodeCents($stringCents);
-        $decimalArgument = $this->decimalArgument($decimalArguments);
 
         return "$integerArgument,$decimalArgument";
     }
@@ -115,13 +120,18 @@ class TextToNumber
     {
         $output = [];
         foreach ($arguments as $key => $number) {
-            if (isset($this->multiples[$number])) {
+            if ($this->isMultiple($number)) {
                 $output[$key-1] = $output[$key-1] * $this->multiples[$number];
                 continue;
             }
             $output[] = $this->numbers[$number];
         }
         return array_sum($output);
+    }
+
+    private function isMultiple($number)
+    {
+        return array_key_exists($number, $this->multiples);
     }
 
     private function decimalArgument($decimalArguments)
