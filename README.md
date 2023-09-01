@@ -16,7 +16,8 @@ composer require logicinception/moneytonumbers
 ## Usage
 
 ```php
-// Usage description here
+$textClass = new TextToNumber("dois mil quinhentos e vinte e três reais e dezoito centavos");
+$textClass->getNumber(); //output: 2523,18
 ```
 
 ### Testing
