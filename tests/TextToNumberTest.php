@@ -1,6 +1,6 @@
 <?php
 
-namespace LogicInception\Tests;
+namespace LogicInception\MoneyToNumbers\Tests;
 
 use LogicInception\MoneyToNumbers\TextToNumber;
 use PHPUnit\Framework\TestCase;
