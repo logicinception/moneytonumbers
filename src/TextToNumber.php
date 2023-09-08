@@ -4,7 +4,7 @@ namespace LogicInception\MoneyToNumbers;
 
 class TextToNumber
 {
-    private $simpleNumbers = [1, 2, 3, 4, 5, 6, 7, 8, 9];
+    private $simpleNumbers = [1,2,3,4,5,6,7,8,9];
 
     private $numbers = [
         "um" => 1,
@@ -28,21 +28,21 @@ class TextToNumber
         "dezenove" => 19,
         "vinte" => 20,
         "trinta" => 30,
-        "quarenta" => 40,
+        "quarenta"=> 40,
         "cinquenta" => 50,
-        "sessenta" => 60,
+        "sessenta"=> 60,
         "setenta" => 70,
-        "oitenta" => 80,
+        "oitenta"=> 80,
         "noventa" => 90,
-        "cem" => 100,
+        "cem"=> 100,
         "cento" => 100,
-        "duzentos" => 200,
+        "duzentos"=> 200,
         "trezentos" => 300,
-        "quatrocentos" => 400,
+        "quatrocentos"=> 400,
         "quinhentos" => 500,
-        "seicentos" => 600,
+        "seicentos"=> 600,
         "setecentos" => 700,
-        "oitocentos" => 800,
+        "oitocentos"=> 800,
         "novecentos" => 900,
     ];
 
@@ -68,9 +68,8 @@ class TextToNumber
         } catch (\Exception $exception) {
             $this->hasIntegerArgument = false;
         }
-
+        print_r($explodedMoney);
         $integerArgument = "0";
-
         if ($this->hasIntegerArgument) {
             $arguments = explode(' ', $explodedMoney[0]);
             $integerArgument = $this->integerArgument($arguments);
@@ -89,11 +88,11 @@ class TextToNumber
 
     private function explodeTextMoney(string $textSanitized): array
     {
-        if (str_contains($textSanitized, 'real')) {
+        if(str_contains($textSanitized, 'real')) {
             $explodedArray = explode('real', $textSanitized);
             return $this->sanitizeArray($explodedArray);
         }
-        if (str_contains($textSanitized, 'reais')) {
+        if(str_contains($textSanitized, 'reais')) {
             $explodedArray = explode('reais', $textSanitized);
             return $this->sanitizeArray($explodedArray);
         }
@@ -102,7 +101,7 @@ class TextToNumber
 
     private function explodeCents(string $decimalArgument): array
     {
-        if (str_contains($decimalArgument, 'centavos')) {
+        if(str_contains($decimalArgument, 'centavos')) {
             $sanitizeCents = str_replace('centavos', '', $decimalArgument);
             $explodedArray = explode(' ', $sanitizeCents);
             return $this->sanitizeArray($explodedArray);
@@ -119,45 +118,14 @@ class TextToNumber
 
     private function integerArgument($arguments)
     {
-
         $output = [];
-        $output2 = NULL;
-        foreach ($arguments as $key => $textNumber) {
-
-            if ($this->isMultiple($textNumber)) {
-
-
-                $multiple = $textNumber;
-                $sumValues = [];
-
-                foreach ($arguments as $key2 => $textNumber2) {
-
-                    if ($this->isMultiple($textNumber2)) continue;
-
-                    $elementToRemoveKey = array_search($this->numbers[$textNumber2], $output);
-
-                    if ($elementToRemoveKey !== false) {
-                        unset($output[$elementToRemoveKey]);
-                    }
-
-                    if ($this->isMultiple($textNumber2) && $multiple == $textNumber2) {
-
-                        $output[] = array_sum($sumValues);
-
-                        break;
-                    }
-                    $sumValues[] = $this->numbers[$textNumber2];
-                }
-
-                
-                 echo ">>>>>>>>>>> \n" .print_r($output);
-                die;
-                $output[0] = $output[0] * $this->multiples[$textNumber];
+        foreach ($arguments as $key => $number) {
+            if ($this->isMultiple($number)) {
+                $output[$key-1] = $output[$key-1] * $this->multiples[$number];
                 continue;
             }
-            $output[] = $this->numbers[$textNumber];
+            $output[] = $this->numbers[$number];
         }
-        // echo ">>>>>>>>>>> \n" .print_r($output);
         return array_sum($output);
     }
 

@@ -19,14 +19,14 @@ class TextToNumberTest extends TestCase
     public function numbersProvider(): array
     {
         return [
-            // ["dois mil quinhentos e vinte e três reais e dezoito centavos", "2523,18"],
-            // ["sete centavos", "0,07"],
-            // ["um centavo", "0,01"],
-            // ["dez reais e dois centavos", "10,02"],
-            // ["dez reais e um centavo", "10,01"],
-            // ["cinco mil e cem reais e três centavos", "5100,03"],
-            // ["vinte e cinco centavos", "0,25"],
-            // ["dez reais", "10,00"],
+            ["dois mil quinhentos e vinte e três reais e dezoito centavos", "2523,18"],
+            ["sete centavos", "0,07"],
+            ["um centavo", "0,01"],
+            ["dez reais e dois centavos", "10,02"],
+            ["dez reais e um centavo", "10,01"],
+            ["cinco mil e cem reais e três centavos", "5100,03"],
+            ["vinte e cinco centavos", "0,25"],
+            ["dez reais", "10,00"],
             ["vinte e cinco mil e trezentos reais", "25300,00"],
 //            ["vinte mil e trezentos reais", "25300,00"],
 //            ["um real", "1,00"],
