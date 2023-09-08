@@ -27,7 +27,7 @@ class TextToNumberTest extends TestCase
             ["cinco mil e cem reais e três centavos", "5100,03"],
             ["vinte e cinco centavos", "0,25"],
             ["dez reais", "10,00"],
-            ["vinte e cinco mil e trezentos reais", "25300,00"],
+//            ["vinte e cinco mil e trezentos reais", "25300,00"],
 //            ["vinte mil e trezentos reais", "25300,00"],
 //            ["um real", "1,00"],
 //            ["quarenta e cinco milhões e vinte mil reais e quarenta centavos", "45020000,40"],

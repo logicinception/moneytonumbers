@@ -68,7 +68,6 @@ class TextToNumber
         } catch (\Exception $exception) {
             $this->hasIntegerArgument = false;
         }
-        print_r($explodedMoney);
         $integerArgument = "0";
         if ($this->hasIntegerArgument) {
             $arguments = explode(' ', $explodedMoney[0]);
